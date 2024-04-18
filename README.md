@@ -32,3 +32,11 @@ docker login -u "${DOCKERHUB_LOGIN}" -p "${DOCKERHUB_TOKEN}"
 ```bash
 docker push "shadowuser17/memory-leaking-app:latest"
 ```
+
+#### Deploy to K8S:
+```bash
+kubectl create ns testing
+```
+```bash
+kubectl apply -f k8s/deploy.yml -n testing
+```

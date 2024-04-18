@@ -1,0 +1,24 @@
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  name: "memory-leaking-app"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: "memory-leaking-app"
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: "memory-leaking-app"
+    spec:
+      automountServiceAccountToken: false
+      containers:
+        - name: "memory-leaking-app"
+          image: "shadowuser17/memory-leaking-app:latest"
+          imagePullPolicy: "Always"
+          resources:
+            requests:
+              memory: "8Mi"
+            limits:
+              memory: "8Mi"
