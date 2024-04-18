@@ -12,7 +12,6 @@ go build -ldflags="-s -w" -o ./app ./cmd/main.go
 ```
 
 #### Build docker image:
-- Stable version:
 ```bash
 docker build -t "shadowuser17/memory-leaking-app:latest" .
 ```
